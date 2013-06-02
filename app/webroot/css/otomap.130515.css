@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/*
+* {
+	margin:0;
+	padding:0;
+}
+*/
+
+body {
+	background: #f5fffa;
+	color: #000000;
+}
+
+a {
+	color: #003d4c;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+/*
+#header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+*/
+
+.center {
+  text-align: center;
+}
+.right{
+  text-align: right;
+}
+
+
+/**
+ * The design of #sortable_list was taken from:
+ *     http://www.d-spica.com/designcatalog/table/table021.html
+ */
+
+#sortable_list {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
+  width: 570px;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 100%;
+}
+
+#sortable_list th,
+#sortable_list td {
+  padding: 4px 6px;
+}
+
+#sortable_list th {
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #FFD9F3;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 92%;
+}
+
+#sortable_list td {
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #F3F3F3;
+  white-space: nowrap;
+}
+
+
+.reg-message {
+  color: #808080;
+  font-size: 75%;
+}
+
+.register_table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
+  width: 570px;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 100%;
+}
+
+
+.register_table th {
+  padding: 4px 6px;
+
+}
+.register_table td {
+  padding: 4px 6px;
+}
+
+.register_table th {
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #FFD9F3;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 92%;
+}
+
+.register_table td {
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #F3F3F3;
+  white-space: nowrap;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
+.number input{
+  text-align: right;
+}
+
+.message-for-required {
+  padding-top: 3px;
+  font-size: 50%;
+  color: red;
+}
