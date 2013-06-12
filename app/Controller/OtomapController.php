@@ -9,11 +9,20 @@ class OtomapController extends AppController
         $this->layout = 'otomap';
         /* Prefectures list for search form */
         $this->set('id2pref', $this->Prefecture->get_id2name_array_for_search());
+        $this->set('title_for_layout', '音ゲーマップ');
     }
+
+    public function welcome()
+    {
+        $this->layout = 'otomap';
+        $this->set('title_for_layout', '音ゲー的集合知');
+    }
+
 
     public function detail($id = null)
     {
         $this->layout = 'otomap';
+        $this->set('title_for_layout', '音ゲーマップ');
 
         $result = $this->Game_center->get_by_id($id);
         
@@ -31,6 +40,7 @@ class OtomapController extends AppController
     public function narrow_detail($id = null)
     {
         $this->layout = 'info_window';
+        $this->set('title_for_layout', '音ゲーマップ');
 
         $result = $this->Game_center->get_by_id($id);
         
@@ -51,6 +61,7 @@ class OtomapController extends AppController
         /* Prefectures list for search form */
         $this->set('id2pref', $this->Prefecture->get_id2name_array_for_search());
         $this->set('mode', $mode);
+        $this->set('title_for_layout', '音ゲーマップ');
 
         if ($this->request->isPost()){
             if ($mode !== 'all' and $mode !== 'sdvx')
@@ -93,6 +104,7 @@ class OtomapController extends AppController
     public function edit($mode = 'new')
     {
         $this->layout = 'otomap';
+        $this->set('title_for_layout', '音ゲーマップ');
         
         if ($this->request->isGet())
         {

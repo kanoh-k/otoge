@@ -111,8 +111,11 @@ CakeLog::config('error', array(
 /**
  * Global variables used by my apps
  */
-Configure::write('url.top', 'http://www7296uj.sakura.ne.jp/otomap');
+Configure::write('url.top', 'http://www7296uj.sakura.ne.jp/');
+Configure::write('url.otomap', 'http://www7296uj.sakura.ne.jp/otomap');
 Configure::write('url.edit', 'http://www7296uj.sakura.ne.jp/otomap/edit');
 Configure::write('url.search', 'http://www7296uj.sakura.ne.jp/otomap/search');
 Configure::write('url.detail', 'http://www7296uj.sakura.ne.jp/otomap/detail');
 Configure::write('url.narrow_detail', 'http://www7296uj.sakura.ne.jp/otomap/narrow_detail');
+
+Configure::write('url.sdvxrank', 'http://www7296uj.sakura.ne.jp/sdvxrank');

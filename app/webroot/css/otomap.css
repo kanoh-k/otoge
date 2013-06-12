@@ -37,8 +37,11 @@ td {
   text-align: right;
 }
 
-div.content {
-  margin-top: 25px;
+div#content {
+/*  margin-top: 25px; */
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #container {
@@ -81,6 +84,7 @@ div.content {
 }
 
 #footer {
+  clear: both;
   margin-top: 20px;
   text-align: center;
   width: 1000px;
@@ -318,7 +322,7 @@ div.search-form-tab li.selected {
 }
 
 div.notification {
-    width: 1000px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -358,4 +362,61 @@ div.social_btn li {
 
 div.social_btn iframe {
   margin: 0 !important;
+}
+
+div.ranking table {
+  width: 1000px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.ranking th {
+  padding: 4px 6px;
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #dbdbdb;
+  text-align: center;
+}
+
+div.ranking td {
+  padding: 4px 6px;
+  border-bottom: solid 1px #B2B2B2;
+  border-right: solid 1px #B2B2B2;
+  background: #ededed;
+}
+
+div.calender {
+  width: 1000px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+div.ranking {
+  width: 1000px;
+  text-align: center;
+}
+
+div.ranking .titlecol {
+  width: 450px;
+}
+
+div.ranking .artistcol {
+  width: 450px;
+}
+
+div.left-column {
+  width: 200px;
+  float: left;
+}
+
+div.right-column {
+  widdth: 800px;
+  float: right;
+}
+
+div.footer-message {
+  margin-top: 20px;
+  font-size: 50%;
+  color: gray;
 }

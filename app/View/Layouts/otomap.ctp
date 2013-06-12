@@ -22,10 +22,11 @@
 <html>
 <head>
 <?php echo $this->Html->charset(); ?>
-<title>音ゲーマップ</title>
+<title><?php echo $title_for_layout; ?></title>
 <?php
 echo $this->Html->css('otomap');
-echo $this->Html->script('jquery');
+// echo $this->Html->script('jquery');
+echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>';
 echo $this->Html->script('jquery.tablesorter');
 echo $this->Html->script('otomap');
 $this->start('script');
@@ -41,8 +42,8 @@ echo $this->fetch('script');
 // echo $scripts_for_layout;    
 
 $url_top = Configure::read('url.top');
-$url_all = Configure::read('url.search');
-$url_new = Configure::read('url.edit') . '/new';
+$url_otomap = Configure::read('url.otomap');
+$url_sdvxrank = Configure::read('url.sdvxrank');
 ?>
 </head>
 <body>
@@ -50,8 +51,8 @@ $url_new = Configure::read('url.edit') . '/new';
     <div id="header">
     <table id="header_menu"><tr>
     <?php echo "<td><a href='$url_top'>TOP</a></td>"?>
-    <?php echo "<td><a href='$url_all'>全機種検索</a></td>"?>
-    <?php echo "<td><a href='$url_new'>新規登録</a></td>"?>
+    <?php echo "<td><a href='$url_otomap'>音ゲーマップ</a></td>"?>
+    <?php echo "<td><a href='$url_sdvxrank'>SDVXランキング</a></td>"?>
     </tr></table>
     </div>
     <div id="content">

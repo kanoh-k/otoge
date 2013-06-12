@@ -1,8 +1,13 @@
 <div id="page-title">音ゲーマップ</div>
 
 <?php
+$url_reg = Configure::read('url.edit') . '/new';
 echo $this->element('search_form');
 ?>
+
+<div style="text-align:center; margin-top:20px; margin-bottom:20px;">
+<a href=<?php echo "'$url_reg'"; ?>>ゲームセンターを新規登録する</a>
+</div>
 
 <div class="notification">
 <h3>音ゲーマップについて</h3>
@@ -22,7 +27,7 @@ echo $this->element('search_form');
 <h4>ゲームセンターを新しく登録する</h4>
 <ol>
 <li>地域や店舗名検索を用いて、ゲームセンターが既に登録されていないかを確認してください。</li>
-<li>ゲームセンターが登録されていない場合は、画面上部のメニューから「新規登録」ページに移動し、情報を登録してください。</li>
+<li>ゲームセンターが登録されていない場合は、検索フォーム下のリンクから「<a href=<?php echo "'$url_reg'"; ?>>新規登録</a>」ページに移動し、情報を登録してください。</li>
 </ol>
 <h4>ゲームセンターの情報を編集する</h4>
 <ol>
