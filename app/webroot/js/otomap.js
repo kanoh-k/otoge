@@ -1,3 +1,4 @@
+/* Functions for the search form of Otomap */
 var currentSearchForm = null;
 function changeSearchForm(tab) {
 
@@ -11,6 +12,8 @@ function changeSearchForm(tab) {
     $("li." + tab + '-tab').addClass('selected');
 }
 
+
+/* Functions for map view of Otomap */
 function adjustCSS() {
     var h = $(window).height();
     var w = $(window).width();

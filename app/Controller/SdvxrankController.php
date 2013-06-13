@@ -2,7 +2,7 @@
 class SdvxrankController extends AppController
 {
     public $name = 'Sdvxrank';
-    public $uses = array('Sdvxrank_hit_chart', 'Sdvxrank_floor', 'Sdvxrank_exit_tunes');
+    public $uses = array('Sdvxrank_hit_chart', 'Sdvxrank_floor', 'Sdvxrank_exit_tunes', 'Sdvxrank_music');
 
     private function _valid_date($date)
     {
@@ -47,5 +47,51 @@ class SdvxrankController extends AppController
         $this->set('floor', $floor);
         $this->set('exit_tunes', $exit_tunes);
         $this->set('date', $date);
+    }
+
+    public function history($mid = 0, $period = 'week')
+    {
+        $this->layout = 'sdvxrank';
+
+        if (preg_match('/^[0-9]+$/', $mid) and $this->Sdvxrank_music->music_exist($mid))
+        {
+            if ($period !== 'week' and $period !== 'month' and $period !== 'all')
+            {
+                $period = 'week';
+            }
+            
+            $music = $this->Sdvxrank_music->get_by_id($mid);
+
+            if ($period === 'week')
+            {
+                $h = $this->Sdvxrank_hit_chart->get_week_history($mid);
+                $f = $this->Sdvxrank_floor->get_week_history($mid);
+                $e = $this->Sdvxrank_exit_tunes->get_week_history($mid);
+            }
+            else if ($period === 'month')
+            {
+                $h = $this->Sdvxrank_hit_chart->get_month_history($mid);
+                $f = $this->Sdvxrank_floor->get_month_history($mid);
+                $e = $this->Sdvxrank_exit_tunes->get_month_history($mid);
+            }
+            else if ($period === 'all')
+            {
+                $h = $this->Sdvxrank_hit_chart->get_all_history($mid);
+                $f = $this->Sdvxrank_floor->get_all_history($mid);
+                $e = $this->Sdvxrank_exit_tunes->get_all_history($mid);
+            }
+            $history = array_merge_recursive($h, $f, $e);
+            $this->set('music', $music['Sdvxrank_music']);
+            $this->set('begin', $history['begin']);
+            $this->set('end', $history['end']);
+            $this->set('history', $history['history']);
+            $this->set('period', $period);
+        }
+        else
+        {
+            /* midがDBに存在しなかったらエラー */
+            $this->set('message', '曲情報が見つかりません');
+            $this->render('error');
+        }
     }
 }

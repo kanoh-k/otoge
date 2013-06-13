@@ -317,6 +317,21 @@ div.search-form-tab li.selected {
   background: #9bdeff;
 }
 
+div.tab ul {
+  margin-left: 4px;
+  cursor: default;
+}
+
+div.tab li {
+  display: inline;
+  background: #a2a2a2;
+  padding: 5px;
+}
+
+div.tab li.selected {
+  background: #9bdeff;
+}
+
 .invisible {
   display: none;
 }
@@ -384,6 +399,11 @@ div.ranking td {
   border-bottom: solid 1px #B2B2B2;
   border-right: solid 1px #B2B2B2;
   background: #ededed;
+  text-align: left;
+}
+
+div.ranking td.center {
+  text-align: center;
 }
 
 div.calender {
@@ -424,4 +444,10 @@ div.footer-message {
   margin-top: 20px;
   font-size: 50%;
   color: gray;
+}
+
+div.fixedwidth {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }

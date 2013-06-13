@@ -32,8 +32,9 @@ echo $this->Form->end(array('label'=>'日付変更', 'div'=>false));
 <?php
 foreach($hit_chart as $key => $value)
 {
-    echo '<tr><td>' . $value['Sdvxrank_hit_chart']['rank'] . '</td>';
-    echo '<td>' . $value['Music']['title'] . '</td>';
+    $history = 'history/' . $value['Sdvxrank_hit_chart']['music_id'];
+    echo '<tr><td class="center">' . $value['Sdvxrank_hit_chart']['rank'] . '</td>';
+    echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
 
 }
@@ -45,8 +46,9 @@ foreach($hit_chart as $key => $value)
 <?php
 foreach($floor as $key => $value)
 {
-    echo '<tr><td>' . $value['Sdvxrank_floor']['rank'] . '</td>';
-    echo '<td>' . $value['Music']['title'] . '</td>';
+    $history = 'history/' . $value['Sdvxrank_floor']['music_id'];
+    echo '<tr><td class="center">' . $value['Sdvxrank_floor']['rank'] . '</td>';
+    echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
 
 }
@@ -58,8 +60,9 @@ foreach($floor as $key => $value)
 <?php
 foreach($exit_tunes as $key => $value)
 {
-    echo '<tr><td>' . $value['Sdvxrank_exit_tunes']['rank'] . '</td>';
-    echo '<td>' . $value['Music']['title'] . '</td>';
+    $history = 'history/' . $value['Sdvxrank_exit_tunes']['music_id'];
+    echo '<tr><td class="center">' . $value['Sdvxrank_exit_tunes']['rank'] . '</td>';
+    echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
 
 }
