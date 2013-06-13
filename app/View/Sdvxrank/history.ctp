@@ -1,6 +1,5 @@
 <?php
-// $base = Configure::read('url.sdvxrank') . '/history';
-$base = 'http://www7296uj.sakura.ne.jp:54321/sdvxrank/history';
+$base = Configure::read('url.sdvxrank') . '/history';
 $mid = $music['id'];
 echo $this->start('script'); ?>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
