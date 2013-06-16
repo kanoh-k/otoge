@@ -8,7 +8,12 @@ echo $this->start('script'); ?>
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([['Date','Hit chart', 'Floor', 'EXIT TUNES'],
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Hit chart');
+            data.addColumn('number', 'Floor');
+            data.addColumn('number', 'EXIT TUNES');
+            data.addRows([
 <?php
 foreach ($history as $key => $value)
 {
@@ -18,7 +23,7 @@ foreach ($history as $key => $value)
     echo "['$key', $h, $f, $e],";
 }
 ?>
-                                                                 ]);
+                             ]);
 
             var options = {
             title: 'Daily ranking history',
@@ -26,7 +31,8 @@ foreach ($history as $key => $value)
             width: 1000,
             backgroundColor: '#f6f6f6',
             vAxis: {title: 'Rank', viewWindowMode: 'explicit', viewWindow: {min: 1, max: 20}, direction: -1},
-            hAxis: {title: 'Date'}
+            hAxis: {title: 'Date'},
+            pointSize: 5
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));

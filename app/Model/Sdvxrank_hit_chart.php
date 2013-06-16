@@ -64,7 +64,7 @@ class Sdvxrank_hit_chart extends AppModel
         for ($i = 0; $i <= $days; $i++)
         {
             $d = date('Y-m-d', strtotime($begin . $i . 'days'));
-            $history[$d][$this->useTable] = 21; // Under 20th
+            $history[$d][$this->useTable] = 'null'; // Under 20th
         }
 
         foreach ($rows as $key => $value)
