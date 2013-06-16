@@ -1,3 +1,6 @@
+<?php
+$base = Configure::read('url.sdvxrank');
+?>
 <div id="page-title">SOUND VOLTEX ヒットチャート</div>
 
 <div class="calender">
@@ -32,8 +35,8 @@ echo $this->Form->end(array('label'=>'日付変更', 'div'=>false));
 <?php
 foreach($hit_chart as $key => $value)
 {
-    $rank_history = 'rank_history/hit_chart/' . $value['Sdvxrank_hit_chart']['rank'];
-    $history = 'history/' . $value['Sdvxrank_hit_chart']['music_id'];
+    $rank_history = $base . '/rank_history/hit_chart/' . $value['Sdvxrank_hit_chart']['rank'];
+    $history = "$base/history/" . $value['Sdvxrank_hit_chart']['music_id'];
     echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_hit_chart']['rank'] . '</a></td>';
     echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
@@ -47,8 +50,8 @@ foreach($hit_chart as $key => $value)
 <?php
 foreach($floor as $key => $value)
 {
-    $rank_history = 'rank_history/floor/' . $value['Sdvxrank_floor']['rank'];
-    $history = 'history/' . $value['Sdvxrank_floor']['music_id'];
+    $rank_history = $base . '/rank_history/floor/' . $value['Sdvxrank_floor']['rank'];
+    $history = "$base/history/" . $value['Sdvxrank_floor']['music_id'];
     echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_floor']['rank'] . '</a></td>';
     echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
@@ -62,8 +65,8 @@ foreach($floor as $key => $value)
 <?php
 foreach($exit_tunes as $key => $value)
 {
-    $rank_history = 'rank_history/exit_tunes/' . $value['Sdvxrank_exit_tunes']['rank'];
-    $history = 'history/' . $value['Sdvxrank_exit_tunes']['music_id'];
+    $rank_history = $base . '/rank_history/exit_tunes/' . $value['Sdvxrank_exit_tunes']['rank'];
+    $history = "$base/history/" . $value['Sdvxrank_exit_tunes']['music_id'];
     echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_exit_tunes']['rank'] . '</a></td>';
     echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
