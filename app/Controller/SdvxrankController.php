@@ -94,4 +94,52 @@ class SdvxrankController extends AppController
             $this->render('error');
         }
     }
+
+    public function rank_history($target = 'hit_chart', $rank = 1, $period = 'week')
+    {
+        $this->layout = 'sdvxrank';
+
+        if ($period !== 'week' and $period !== 'month' and $period !== 'all')
+        {
+            $period = 'week';
+        }
+
+        if ($target === 'hit_chart')
+        {
+            $target_model = $this->Sdvxrank_hit_chart;
+        }
+        else if ($target === 'floor')
+        {
+            $target_model = $this->Sdvxrank_floor;
+        }
+        else if ($target === 'exit_tunes')
+        {
+            $target_model = $this->Sdvxrank_exit_tunes;
+        }
+        else
+        {
+            $this->set('message', 'パラメータを正しく指定してください');
+            $this->render('error');
+        }
+
+        if ($period === 'week')
+        {
+            $history = $target_model->get_week_rank_history($rank);
+        }
+        else if ($period === 'month')
+        {
+            $history = $target_model->get_month_rank_history($rank);
+        }
+        else if ($period === 'all')
+        {
+            $history = $target_model->get_all_rank_history($rank);
+        }
+
+        $this->set('rank', $rank);
+        $this->set('target', $target);
+        $this->set('begin', $history['begin']);
+        $this->set('end', $history['end']);
+        $this->set('history', $history['history']);
+        $this->set('period', $period);
+    }
 }

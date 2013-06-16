@@ -430,6 +430,14 @@ div.ranking .artistcol {
   width: 450px;
 }
 
+div.ranking .titlecol-narrow {
+  width: 420px;
+}
+
+div.ranking .artistcol-narrow {
+  width: 420px;
+}
+
 div.left-column {
   width: 200px;
   float: left;

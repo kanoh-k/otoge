@@ -64,7 +64,7 @@ $url_sdvxrank = Configure::read('url.sdvxrank');
     </div>
     <div id="footer">
 <?php echo $this->element('social_btn'); ?>
-    <a href=<?php echo "\"$url_top\"" ?>>TOPへ戻る</a> <br>
+    <a href=<?php echo "\"$url_sdvxrank\"" ?>>SDVX ヒットチャートのTOPへ戻る</a> <br>
     <div class="footer-message">
     ランキングデータは公式サイトの<a href="http://p.eagate.573.jp/game/sdvx/ii/p/hitchart/index.html" target="_blank">ヒットチャートページ</a>から取得しています
     </div>
