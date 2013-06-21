@@ -1,8 +1,17 @@
 <?php
+App::uses('AppController', 'Controller');
+
 class SdvxrankController extends AppController
 {
     public $name = 'Sdvxrank';
     public $uses = array('Sdvxrank_hit_chart', 'Sdvxrank_floor', 'Sdvxrank_exit_tunes', 'Sdvxrank_music');
+    public $helpers = array('Cache');
+    public $cacheAction = array(
+        'daily' => '1 hour',
+        'history' => '1 hour',
+        'rank_history' => '1 hour',
+        );
+    
 
     private function _valid_date($date)
     {
