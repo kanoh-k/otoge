@@ -1,5 +1,10 @@
 <?php
 $base = Configure::read('url.sdvxrank');
+$table_title = array(
+    'hit_chart' => 'ヒットチャート',
+    'floor' => 'Floorランキング',
+    'exit_tunes' => 'EXIT_TUNESランキング',
+    );
 ?>
 <div id="page-title">SOUND VOLTEX ヒットチャート</div>
 
@@ -25,49 +30,27 @@ echo $this->Form->input('date', array(
                        'label' => '日付を選択してください：',
                        'size' => 8,
                        ));
+echo $this->Form->hidden('target', array('value' => $target));
 echo $this->Form->end(array('label'=>'日付変更', 'div'=>false));
 ?>
 </div>
 <div class="ranking">
-<h3 style="text-align:center"><?php echo $date; ?>のランキング</h3>
-<table><tr><th colspan=3>全てのカテゴリ</th></tr>
-<tr><th>順位</th><th class="titlecol">曲名</th><th class="artistcol">アーティスト</th></tr>
+<h3 style="text-align:center"><?php echo $date; ?>の<?php echo $table_title[$target]; ?></h3>
+<div class="tab" style="text-align: right">
+<ul>
+<li id="hit_chart-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>Hit chart</li>
+<li id="floor-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>Floor</li>
+<li id="exit_tunes-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>EXIT TUNES</li>
+<script type="text/javascript">$("li#" + <?php echo "'$target'"; ?> + '-tab').addClass('selected');</script>
+</ul>
+</div>
+<table><tr><th>順位</th><th class="titlecol">曲名</th><th class="artistcol">アーティスト</th></tr>
 <?php
-foreach($hit_chart as $key => $value)
+foreach($ranking as $key => $value)
 {
-    $rank_history = $base . '/rank_history/hit_chart/' . $value['Sdvxrank_hit_chart']['rank'];
-    $history = "$base/history/" . $value['Sdvxrank_hit_chart']['music_id'];
-    echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_hit_chart']['rank'] . '</a></td>';
-    echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
-    echo '<td>' . $value['Music']['artist'] . '</td></tr>';
-
-}
-?>
-</table>
-
-<table><tr><th colspan=3>Floor</th></tr>
-<tr><th>順位</th><th class="titlecol">曲名</th><th class="artistcol">アーティスト</th></tr>
-<?php
-foreach($floor as $key => $value)
-{
-    $rank_history = $base . '/rank_history/floor/' . $value['Sdvxrank_floor']['rank'];
-    $history = "$base/history/" . $value['Sdvxrank_floor']['music_id'];
-    echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_floor']['rank'] . '</a></td>';
-    echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
-    echo '<td>' . $value['Music']['artist'] . '</td></tr>';
-
-}
-?>
-</table>
-
-<table><tr><th colspan=3>EXIT TUNES</th></tr>
-<tr><th>順位</th><th class="titlecol">曲名</th><th class="artistcol">アーティスト</th></tr>
-<?php
-foreach($exit_tunes as $key => $value)
-{
-    $rank_history = $base . '/rank_history/exit_tunes/' . $value['Sdvxrank_exit_tunes']['rank'];
-    $history = "$base/history/" . $value['Sdvxrank_exit_tunes']['music_id'];
-    echo "<tr><td class='center'><a href='$rank_history'>" . $value['Sdvxrank_exit_tunes']['rank'] . '</a></td>';
+    $rank_history = $base . "/rank_history/$target/" . $value["Sdvxrank_$target"]['rank'];
+    $history = "$base/history/" . $value["Sdvxrank_$target"]['music_id'];
+    echo "<tr><td class='center'><a href='$rank_history'>" . $value["Sdvxrank_$target"]['rank'] . '</a></td>';
     echo "<td><a href='$history'>" . $value['Music']['title'] . '</a></td>';
     echo '<td>' . $value['Music']['artist'] . '</td></tr>';
 
@@ -78,5 +61,12 @@ foreach($exit_tunes as $key => $value)
 
 <div class="notification">
 <h3>お知らせ</h3>
-<p>6/5-6/7のデータと、6/10のFLOORおよびEXIT TUNESのデータが保存できておりません。<br>もしデータをお持ちの方がいらっしゃいましたら、<a href="https://twitter.com/kanoh_k">@kanoh_k</a>まで連絡いただけると幸いです。</p>
+<ul>
+<li>
+2013年の6/5-6/7のデータと、6/10のFLOORおよびEXIT TUNESのデータが保存できておりません。もしデータをお持ちの方がいらっしゃいましたら、<a href="https://twitter.com/kanoh_k">@kanoh_k</a>まで連絡いただけると幸いです。
+</li>
+<li>
+以前は公式サイトで20位のデータまでしか公開されていなかったため、2013/07/04以前のデータについては21位～30位のデータは保存されておりません。
+</li>
+</ul>
 </div>

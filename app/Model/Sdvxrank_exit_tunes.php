@@ -57,7 +57,9 @@ class Sdvxrank_exit_tunes extends AppModel
         return array ($date, $this->get_by_date($date));
     }
 
-    function get_history($mid, $days){
+    function get_history($mid, $days)
+    {
+        $days--;
         $latest_str = $this->get_latest_date();
         $begin = date('Y-m-d', strtotime($latest_str . ' -' . $days . 'days'));
         
@@ -110,6 +112,7 @@ class Sdvxrank_exit_tunes extends AppModel
 
     function get_rank_history($rank, $days)
     {
+        $days--;
         $latest_str = $this->get_latest_date();
         $begin = date('Y-m-d', strtotime($latest_str . ' -' . $days . 'days'));
         

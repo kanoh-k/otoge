@@ -16,7 +16,7 @@ class SdvxrankController extends AppController
         $this->redirect('daily');
     }
 
-    public function daily($date = '')
+    public function daily($target = 'hit_chart', $date = '')
     {
         $this->layout = 'sdvxrank';
 
@@ -27,27 +27,54 @@ class SdvxrankController extends AppController
             $date = $this->request->data['date'];
         }
 
+        if ($this->request->isPost() and isset($this->request->data['target']))
+        {
+            $target = $this->request->data['target'];
+        }
+
+        if ($target !== 'hit_chart' and $target !== 'floor' and $target !== 'exit_tunes')
+        {
+            $target = 'hit_chart';
+        }
+
         if ($this->_valid_date($date))
         {
-            $hit_chart = $this->Sdvxrank_hit_chart->get_by_date($date);
-            $floor = $this->Sdvxrank_floor->get_by_date($date);
-            $exit_tunes = $this->Sdvxrank_exit_tunes->get_by_date($date);
+            if ($target === 'hit_chart')
+            {
+                $ranking = $this->Sdvxrank_hit_chart->get_by_date($date);                
+            }
+            else if ($target === 'floor')
+            {
+                $ranking = $this->Sdvxrank_floor->get_by_date($date);
+            }
+            else if ($target === 'exit_tunes')
+            {
+                $ranking = $this->Sdvxrank_exit_tunes->get_by_date($date);
+            }
             $fetched = true;
         }
-        if (!$fetched) /* Get latest ranking data */
+        if (!$fetched) /* Get latest hit chart and its data */
         {
-            list ($date, $hit_chart) = $this->Sdvxrank_hit_chart->get_today();
-            list ($_, $floor) = $this->Sdvxrank_floor->get_today();
-            list ($_, $exit_tunes) = $this->Sdvxrank_exit_tunes->get_today();
+            if ($target === 'hit_chart')
+            {
+                list ($date, $ranking) = $this->Sdvxrank_hit_chart->get_today();
+            }
+            else if ($target === 'floor')
+            {
+                list ($date, $ranking) = $this->Sdvxrank_floor->get_today();
+            }
+            else if ($target === 'exit_tunes')
+            {
+                list ($date, $ranking) = $this->Sdvxrank_exit_tunes->get_today();
+            }
         }
 
         /* Get date range */
         $this->set('latest', $this->Sdvxrank_hit_chart->get_latest_date());
         $this->set('oldest', $this->Sdvxrank_hit_chart->get_oldest_date());
         
-        $this->set('hit_chart', $hit_chart);
-        $this->set('floor', $floor);
-        $this->set('exit_tunes', $exit_tunes);
+        $this->set('target', $target);
+        $this->set('ranking', $ranking);
         $this->set('date', $date);
     }
 

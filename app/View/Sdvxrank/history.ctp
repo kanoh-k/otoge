@@ -30,7 +30,7 @@ foreach ($history as $key => $value)
             height: 400,
             width: 1000,
             backgroundColor: '#f6f6f6',
-            vAxis: {title: 'Rank', viewWindowMode: 'explicit', viewWindow: {min: 1, max: 20}, direction: -1},
+            vAxis: {title: 'Rank', viewWindowMode: 'explicit', viewWindow: {min: 1, max: 30}, direction: -1, gridlines: {count: 6}},
             hAxis: {title: 'Date'},
             pointSize: 5
             };

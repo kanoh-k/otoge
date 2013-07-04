@@ -311,6 +311,7 @@ div.search-form-tab li {
   display: inline;
   background: #a2a2a2;
   padding: 5px;
+  cursor: pointer;
 }
 
 div.search-form-tab li.selected {
@@ -326,6 +327,7 @@ div.tab li {
   display: inline;
   background: #a2a2a2;
   padding: 5px;
+  cursor: pointer;
 }
 
 div.tab li.selected {

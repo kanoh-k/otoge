@@ -24,6 +24,10 @@ $url_sdvxrank = Configure::read('url.sdvxrank');
 
 <div class="notification">
 <h3>お知らせ</h3>
+<h4>2013/07/05</h4>
+<ul>
+<li>公式サイトの仕様変更に伴い、SDVXランキングを30位まで集計するように変更しました。</li>
+</ul>
 <h4>2013/06/13</h4>
 <ul>
 <li>試験的にSOUND VOLTEXヒットチャートを公開しました</li>
