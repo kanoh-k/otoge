@@ -38,9 +38,9 @@ echo $this->Form->end(array('label'=>'日付変更', 'div'=>false));
 <h3 style="text-align:center"><?php echo $date; ?>の<?php echo $table_title[$target]; ?></h3>
 <div class="tab" style="text-align: right">
 <ul>
-<li id="hit_chart-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>Hit chart</li>
-<li id="floor-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>Floor</li>
-<li id="exit_tunes-tab" onclick=<?php echo "\"location.href='$base/$target/$date'\""?>>EXIT TUNES</li>
+<li id="hit_chart-tab" onclick=<?php echo "\"location.href='$base/daily/hit_chart/$date'\""?>>Hit chart</li>
+<li id="floor-tab" onclick=<?php echo "\"location.href='$base/daily/floor/$date'\""?>>Floor</li>
+<li id="exit_tunes-tab" onclick=<?php echo "\"location.href='$base/daily/exit_tunes/$date'\""?>>EXIT TUNES</li>
 <script type="text/javascript">$("li#" + <?php echo "'$target'"; ?> + '-tab').addClass('selected');</script>
 </ul>
 </div>

@@ -28,7 +28,7 @@ foreach ($history as $date => $music)
     $mid = $music[$target]['id'];
     $title = $music[$target]['title'];
     $artist = $music[$target]['artist'];
-    $date_url = $daily_base . "/$date";
+    $date_url = $daily_base . "/$target/$date";
     $history_url = $history_base . "/$mid";
     echo "<tr><td class=\"center\"><a href=\"$date_url\">$date</a></td>";
     echo "<td><a href=\"$history_url\">$title</a></td><td>$artist</td></tr>";
